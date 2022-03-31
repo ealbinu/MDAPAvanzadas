@@ -799,6 +799,13 @@
 		"oF": 0,
 		"oS": 0
 		},
+	"\/CNAME": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/CNAME",
+		"oF": 0
+		},
 	"\/demo\/ejemplo\/i\/astro.png": {
 		"ft": 32768,
 		"iS": 51507,
