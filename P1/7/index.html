@@ -9,20 +9,129 @@
     <link rel="stylesheet" href="../../assets/font/stylesheet.css"/>
     <link rel="stylesheet" href="../../assets/assets.css"/>
     <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css"/>
-    <style></style>
+    <style>
+      .drag{
+        width: 140px;
+        height: 140px;
+      }
+      .imagen{
+        width: 140px;
+        height: 140px;
+        border-radius: 6px;
+      }
+      .drop{
+        width: 120px;
+        height: 130px;
+        /*border: 4px dashed #fff;*/
+      }
+      .uno{
+        position: absolute;
+        margin-top: -70px;
+        margin-left: 55px;
+        width: 140px;
+        height: 147px;
+      }
+      .dos{
+        position: absolute;
+        width: 240px;
+        height: 320px;
+        margin-left: 510px;
+        margin-top: 22px;
+      }
+      .tres{
+        position: absolute;
+        margin-top: 348px;
+        margin-left: 91px;
+        width: 137px;
+        height: 151px;
+      }
+      .cuatro{
+        margin-top: 145px;
+        margin-left: -209px;
+        width: 135px;
+        height: 150px;
+      }
+      .dropzoneused .numero-oculto{
+        display: none;
+      }
+      .activity{
+        background-image: url('i/15.PNG');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-y: 130px;
+        justify-content: flex-start;
+      }
+      .drag img{
+        max-width: 60px;
+      }
+      .uno .animate__flash img{
+        width: 24px;
+        margin-top: 0px;
+        margin-left: -3px;
+      }
+      .dos .animate__flash img{
+        margin-top: -86px;
+        position: absolute;
+        margin-left: -69px;
+        width: 26px;
+      }
+      .tres .animate__flash img{
+        margin-top: 0px;
+        width: 29px;
+        margin-left: -4px;
+      }
+      .cuatro .animate__flash img{
+        width: 26px;
+        margin-top: 0px;
+        margin-left: 3px;
+      }
+    </style>
   </head>
   <body>
     <div id="app">
       <!-- START-->
       <scene v-if="currentScene==0" :key="0" start-scene="start-scene" @completed="sceneCompleted"></scene>
       <!-- SCENES-->
-      <scene v-if="currentScene==1" :key="1" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="1" scene-color="#ED1C25">
-        <info type="seleccionar" title="" text="Lee la nota informativa." textaudio="s/instruccion1.mp3" :autoplay="true"></info>
+      <scene v-if="currentScene==1" :key="1" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="4" scene-color="#ED1C25">
+        <info type="dragdrop" title="Me lavo las manos." text="Lavarnos las manitas nos protege de los bichitos que están en las cosas que tocamos, por eso es muy importante hacerlo de manera correcta. Ordena las imágenes ¿Cómo deben lavarse las manos?" textaudio="s/instruccion1.mp3" :autoplay="true"></info>
         <activity>
-          <div class="row w100"></div>
+
+          <div class="row w100">
+            <drag dropzone=".drop1" data="d1" append-to-dropzone stay-if-ok>
+              <div class="imagen">
+                <img src="i/16.PNG">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d2" append-to-dropzone> 
+              <div class="imagen">
+                <img src="i/17.PNG">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d3" append-to-dropzone>
+              <div class="imagen">
+                <img src="i/18.PNG">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d4" append-to-dropzone>
+              <div class="imagen">
+                <img src="i/19.PNG">
+              </div>
+            </drag>
+          </div>
+          <div class="row w100">
+            <div class="drop w100 h50 row drop1 cuatro" droptimes="untilok" data="d4">
+              <div class="numero-oculto">4</div>
+            </div>
+            <div class="drop w100 h50 row drop1 tres" droptimes="untilok" data="d3">3</div>
+            <div class="drop w100 h50 row drop1 dos" droptimes="untilok" data="d2">2</div>
+            <div class="drop w100 h50 row drop1 uno" droptimes="untilok" data="d1">1</div>
+          </div>
         </activity>
       </scene>
       <!-- END-->
+
+
+
       <scene v-if="currentScene==2" :key="2" end-scene="end-scene" :final-data="finalData"></scene>
     </div>
     <!-- CDNS-->
@@ -60,7 +169,7 @@
       app.$devmode = false
       app.$set(app.temps, 'a', [])
       
-      app.currentScene = 0
+      app.currentScene = 1
       app.scenesCount = 1
     </script>
   </body>
