@@ -67,18 +67,18 @@
       .uno .animate__flash img{
         width: 24px;
         margin-top: 0px;
-        margin-left: -3px;
+        margin-left: 2px;
       }
       .dos .animate__flash img{
         margin-top: -86px;
         position: absolute;
-        margin-left: -69px;
+        margin-left: -65px;
         width: 26px;
       }
       .tres .animate__flash img{
         margin-top: 0px;
         width: 29px;
-        margin-left: -4px;
+        margin-left: 4px;
       }
       .cuatro .animate__flash img{
         width: 26px;
@@ -93,7 +93,7 @@
       <scene v-if="currentScene==0" :key="0" start-scene="start-scene" @completed="sceneCompleted"></scene>
       <!-- SCENES-->
       <scene v-if="currentScene==1" :key="1" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="4" scene-color="#ED1C25">
-        <info type="dragdrop" title="Me lavo las manos." text="Ordena las imágenes ¿Cómo deben lavarse las manos?. Lavarnos las manitas nos protege de los bichitos que están en las cosas que tocamos, por eso es muy importante hacerlo de manera correcta." textaudio="s/instruccion1.mp3" :autoplay="true"></info>
+        <info type="dragdrop" title="Me lavo las manos." text="Lavarnos las manitas nos protege de los bichitos que están en las cosas que tocamos, por eso es muy importante hacerlo de manera correcta. ¿Cómo deben lavarse las manos? Ordena las imágenes." textaudio="s/instruccion1.mp3" :autoplay="true"></info>
         <activity>
 
           <div class="row w100">
@@ -122,11 +122,11 @@
           </div>
           <div class="row w100">
             <div class="drop w100 h50 row drop1 cuatro" droptimes="untilok" data="d4">
-              <div class="numero-oculto">4</div>
+              <div class="numero-oculto"></div>
             </div>
-            <div class="drop w100 h50 row drop1 tres" droptimes="untilok" data="d3">3</div>
-            <div class="drop w100 h50 row drop1 dos" droptimes="untilok" data="d2">2</div>
-            <div class="drop w100 h50 row drop1 uno" droptimes="untilok" data="d1">1</div>
+            <div class="drop w100 h50 row drop1 tres" droptimes="untilok" data="d3"></div>
+            <div class="drop w100 h50 row drop1 dos" droptimes="untilok" data="d2"></div>
+            <div class="drop w100 h50 row drop1 uno" droptimes="untilok" data="d1"></div>
           </div>
         </activity>
       </scene>
@@ -172,7 +172,7 @@
       app.$set(app.temps, 'a', [])
       
       app.currentScene = 0
-      app.scenesCount = 0
+      app.scenesCount = 1
     </script>
   </body>
 </html>
