@@ -9,21 +9,346 @@
     <link rel="stylesheet" href="../../assets/font/stylesheet.css"/>
     <link rel="stylesheet" href="../../assets/assets.css"/>
     <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css"/>
-    <style></style>
+    <style>
+      .drag{
+        width: 140px;
+        height: 140px;
+      }
+      .imagen{
+        width: 140px;
+        height: 140px;
+        border-radius: 6px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+      .drop{
+        width: 120px;
+        height: 130px;
+        /*border: 4px dashed #fff;*/
+      }
+      .uno{
+        position: absolute;
+        margin-top: -70px;
+        margin-left: 55px;
+        width: 140px;
+        height: 147px;
+      }
+      .dos{
+        position: absolute;
+        width: 240px;
+        height: 320px;
+        margin-left: 510px;
+        margin-top: 22px;
+      }
+      .tres{
+        position: absolute;
+        margin-top: 348px;
+        margin-left: 91px;
+        width: 137px;
+        height: 151px;
+      }
+      .cuatro{
+        margin-left: 0;
+        width: 100%;
+        height: 210px;
+        margin-top: 217px;
+      }
+      .dropzoneused .numero-oculto{
+        display: none;
+      }
+      .activity{
+        background-image: url('i/2.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        justify-content: flex-start;
+        height: 100%;
+      }
+      .activity2{
+        background-image: url('i/3.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        justify-content: flex-start;
+        height: 100%;
+      }
+      .activity3{
+        background-image: url('i/1.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        justify-content: flex-start;
+        height: 100%;
+      }
+      .activity4{
+        background-image: url('i/4.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        justify-content: flex-start;
+        height: 100%;
+      }
+      .activity5{
+        background-image: url('i/5.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        justify-content: flex-start;
+        height: 100%;
+      }
+      .drag img{
+        max-width: 60px;
+      }
+      .uno .animate__flash img{
+        width: 24px;
+        margin-top: 0px;
+        margin-left: 2px;
+      }
+      .dos .animate__flash img{
+        margin-top: -86px;
+        position: absolute;
+        margin-left: -65px;
+        width: 26px;
+      }
+      .tres .animate__flash img{
+        margin-top: 0px;
+        width: 29px;
+        margin-left: 4px;
+      }
+      .cuatro .animate__flash img{
+        width: 26px;
+        margin-top: 0px;
+        margin-left: 3px;
+      }
+    </style>
   </head>
   <body>
     <div id="app">
       <!-- START-->
       <scene v-if="currentScene==0" :key="0" start-scene="start-scene" @completed="sceneCompleted"></scene>
       <!-- SCENES-->
-      <scene v-if="currentScene==1" :key="1" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="1" scene-color="#ED1C25">
-        <info type="seleccionar" title="" text="Lee la nota informativa." textaudio="s/instruccion1.mp3" :autoplay="true"></info>
+      <scene v-if="currentScene==1" :key="1" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="2" scene-color="#ED1C25">
+        <info type="seleccionar" title="Deportes con balón y pelota" text="Observa los balones  y, según sus características, colócalo en su cancha." textaudio="s/intro.mp3" :autoplay="true"></info>
         <activity>
-          <div class="row w100"></div>
+          
+
+          <div class="row w100">
+            <div class="drop w100 h50 row drop1 cuatro" droptimes="untilok" data="d1"></div>
+          </div>
+
+          <div class="row w100 activity1">
+
+            <drag dropzone=".drop1" data="d2" append-to-dropzone> 
+              <div class="imagen">
+                <img src="i/11.png">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d4" append-to-dropzone stay-if-ok>
+              <div class="imagen">
+                <img src="i/14.png">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d1" append-to-dropzone>
+              <div class="imagen">
+                <img src="i/18.png">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d3" append-to-dropzone>
+              <div class="imagen">
+                <img src="i/8.png">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d5" append-to-dropzone>
+              <div class="imagen">
+                <img src="i/21.png">
+              </div>
+            </drag>
+
+          </div>
+          
         </activity>
+        
       </scene>
       <!-- END-->
-      <scene v-if="currentScene==2" :key="2" end-scene="end-scene" :final-data="finalData"></scene>
+      <!-- SCENES-->
+      <scene v-if="currentScene==2" :key="2" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="2" scene-color="#ED1C25">
+        <info type="seleccionar" title="" text="Lee la nota informativa." textaudio="s/instruccion1.mp3" :autoplay="true"></info>
+        <activity class="activity2">
+          
+
+          <div class="row w100">
+            <div class="drop w100 h50 row drop1 cuatro" droptimes="untilok" data="d2"></div>
+          </div>
+
+          <div class="row w100">
+
+            <drag dropzone=".drop1" data="d2" append-to-dropzone> 
+              <div class="imagen">
+                <img src="i/11.png">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d4" append-to-dropzone stay-if-ok>
+              <div class="imagen">
+                <img src="i/14.png">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d1" append-to-dropzone>
+              <div class="imagen">
+                <img src="i/18.png">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d3" append-to-dropzone>
+              <div class="imagen">
+                <img src="i/8.png">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d5" append-to-dropzone>
+              <div class="imagen">
+                <img src="i/21.png">
+              </div>
+            </drag>
+
+          </div>
+          
+        </activity>
+        
+      </scene>
+      <!-- END-->
+      <!-- SCENES-->
+      <scene v-if="currentScene==3" :key="3" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="2" scene-color="#ED1C25">
+        <info type="seleccionar" title="" text="Lee la nota informativa." textaudio="s/instruccion1.mp3" :autoplay="true"></info>
+        <activity class="activity3">
+          
+
+          <div class="row w100">
+            <div class="drop w100 h50 row drop1 cuatro" droptimes="untilok" data="d4"></div>
+          </div>
+
+          <div class="row w100">
+
+            <drag dropzone=".drop1" data="d2" append-to-dropzone> 
+              <div class="imagen">
+                <img src="i/11.png">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d4" append-to-dropzone stay-if-ok>
+              <div class="imagen">
+                <img src="i/14.png">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d1" append-to-dropzone>
+              <div class="imagen">
+                <img src="i/18.png">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d3" append-to-dropzone>
+              <div class="imagen">
+                <img src="i/8.png">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d5" append-to-dropzone>
+              <div class="imagen">
+                <img src="i/21.png">
+              </div>
+            </drag>
+
+          </div>
+          
+        </activity>
+        
+      </scene>
+      <!-- END-->
+      <!-- SCENES-->
+      <scene v-if="currentScene==4" :key="4" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="2" scene-color="#ED1C25">
+        <info type="seleccionar" title="" text="Lee la nota informativa." textaudio="s/instruccion1.mp3" :autoplay="true"></info>
+        <activity class="activity4">
+          
+
+          <div class="row w100">
+            <div class="drop w100 h50 row drop1 cuatro" droptimes="untilok" data="d5"></div>
+          </div>
+
+          <div class="row w100">
+
+            <drag dropzone=".drop1" data="d2" append-to-dropzone> 
+              <div class="imagen">
+                <img src="i/11.png">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d4" append-to-dropzone stay-if-ok>
+              <div class="imagen">
+                <img src="i/14.png">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d1" append-to-dropzone>
+              <div class="imagen">
+                <img src="i/18.png">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d3" append-to-dropzone>
+              <div class="imagen">
+                <img src="i/8.png">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d5" append-to-dropzone>
+              <div class="imagen">
+                <img src="i/21.png">
+              </div>
+            </drag>
+
+          </div>
+          
+        </activity>
+        
+      </scene>
+      <!-- END-->
+      <!-- SCENES-->
+      <scene v-if="currentScene==5" :key="5" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="2" scene-color="#ED1C25">
+        <info type="seleccionar" title="" text="Lee la nota informativa." textaudio="s/instruccion1.mp3" :autoplay="true"></info>
+        <activity class="activity5">
+          
+
+          <div class="row w100">
+            <div class="drop w100 h50 row drop1 cuatro" droptimes="untilok" data="d3"></div>
+          </div>
+
+          <div class="row w100">
+
+            <drag dropzone=".drop1" data="d2" append-to-dropzone> 
+              <div class="imagen">
+                <img src="i/11.png">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d4" append-to-dropzone stay-if-ok>
+              <div class="imagen">
+                <img src="i/14.png">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d1" append-to-dropzone>
+              <div class="imagen">
+                <img src="i/18.png">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d3" append-to-dropzone>
+              <div class="imagen">
+                <img src="i/8.png">
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d5" append-to-dropzone>
+              <div class="imagen">
+                <img src="i/21.png">
+              </div>
+            </drag>
+
+          </div>
+          
+        </activity>
+        
+      </scene>
+      <!-- END-->
+      <scene v-if="currentScene==6" :key="6" end-scene="end-scene" :final-data="finalData"></scene>
+
     </div>
     <!-- CDNS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
@@ -60,8 +385,8 @@
       app.$devmode = false
       app.$set(app.temps, 'a', [])
       
-      app.currentScene = 0
-      app.scenesCount = 1
+      app.currentScene = 1
+      app.scenesCount = 6
     </script>
   </body>
 </html>
