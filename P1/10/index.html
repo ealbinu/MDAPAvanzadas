@@ -9,7 +9,208 @@
     <link rel="stylesheet" href="../../assets/font/stylesheet.css"/>
     <link rel="stylesheet" href="../../assets/assets.css"/>
     <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css"/>
-    <style></style>
+    <style>
+      .drag{
+        width: 140px;
+        height: 140px;
+      }
+      .imagen{
+        width: 140px;
+        height: 140px;
+        border-radius: 6px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+      .imagen-gato{
+        width: 140px;
+        height: 140px;
+        border-radius: 6px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+      .imagen-pinguino{
+        width: 140px;
+        height: 140px;
+        border-radius: 6px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+      .imagen-camello{
+        width: 140px;
+        height: 140px;
+        border-radius: 6px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+      .imagen-gorila{
+        width: 140px;
+        height: 140px;
+        border-radius: 6px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+      .imagen-pulpo{
+        width: 140px;
+        height: 140px;
+        border-radius: 6px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+      .drop{
+        width: 120px;
+        height: 130px;
+        border: 4px dashed #fff;
+      }
+      .uno{
+        position: absolute;
+        margin-top: -70px;
+        margin-left: 55px;
+        width: 140px;
+        height: 147px;
+      }
+      .dos{
+        position: absolute;
+        width: 240px;
+        height: 320px;
+        margin-left: 510px;
+        margin-top: 22px;
+      }
+      .tres{
+        position: absolute;
+        margin-top: 348px;
+        margin-left: 91px;
+        width: 137px;
+        height: 151px;
+      }
+      .cuatro{
+        margin-left: 0;
+        width: 160px;
+        height: 94px;
+        background-image: url(i/1-.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      .mar{
+        margin-left: 0;
+        width: 160px;
+        height: 94px;
+        background-image: url(i/1-.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      .bosque{
+        margin-left: 0;
+        width: 160px;
+        height: 94px;
+        background-image: url(i/02_2.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      .desierto{
+        margin-left: 0;
+        width: 160px;
+        height: 94px;
+        background-image: url(i/05_2.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      .antartida{
+        margin-left: 0;
+        width: 160px;
+        height: 94px;
+        background-image: url(i/07_2.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      .selva{
+        margin-left: 0;
+        width: 160px;
+        height: 94px;
+        background-image: url(i/09_2.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      .dropzoneused .numero-oculto{
+        display: none;
+      }
+      .activity{
+        background-image: url('i/1-.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        justify-content: flex-start;
+        height: 600px;
+      }
+      .activity2{
+        background-image: url('i/02_2.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        justify-content: flex-start;
+        height: 600px;
+      }
+      .activity3{
+        background-image: url('i/05_2.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        justify-content: flex-start;
+        height: 600px;
+      }
+      .activity4{
+        background-image: url('i/07_2.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        justify-content: flex-start;
+        height: 600px;
+      }
+      .activity5{
+        background-image: url('i/09_2.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        justify-content: flex-start;
+        height: 600px;
+      }
+      .drag img{
+        max-width: 60px;
+      }
+      .uno .animate__flash img{
+        width: 24px;
+        margin-top: 0px;
+        margin-left: 2px;
+      }
+      .dos .animate__flash img{
+        margin-top: -86px;
+        position: absolute;
+        margin-left: -65px;
+        width: 26px;
+      }
+      .tres .animate__flash img{
+        margin-top: 0px;
+        width: 29px;
+        margin-left: 4px;
+      }
+      .cuatro .animate__flash img{
+        width: 26px;
+        margin-top: 0px;
+        margin-left: 3px;
+      }
+      .row-activity1{
+        display: block;
+      }
+      .row-gato{
+        margin-top: 190px;
+        margin-left: 360px;
+      }
+    </style>
   </head>
   <body>
     <div id="app">
@@ -17,13 +218,135 @@
       <scene v-if="currentScene==0" :key="0" start-scene="start-scene" @completed="sceneCompleted"></scene>
       <!-- SCENES-->
       <scene v-if="currentScene==1" :key="1" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="1" scene-color="#ED1C25">
-        <info type="seleccionar" title="" text="Lee la nota informativa." textaudio="s/instruccion1.mp3" :autoplay="true"></info>
+        <info type="seleccionar" title="" text="Observa muy bien la imagen y busca  al animal  que no pertenezcan ahí, cuando lo encuentres dale click y selecciona la imagen del lugar  al que crees que pertenece  (voz de mujer)" textaudio="s/instruccion1.mp3" :autoplay="true"></info>
         <activity>
-          <div class="row w100"></div>
+          <div class="row w100 row-activity1">
+            <div class="row w100">
+              <div class="drop w100 h50 row drop1 mar" droptimes="untilok" data="d1"></div>
+              <div class="drop w100 h50 row drop1 bosque" droptimes="untilok" data="d2"></div>
+              <div class="drop w100 h50 row drop1 desierto" droptimes="untilok" data="d3"></div>
+              <div class="drop w100 h50 row drop1 antartida" droptimes="untilok" data="d4"></div>
+              <div class="drop w100 h50 row drop1 selva" droptimes="untilok" data="d5"></div>
+            </div>
+  
+            <div class="row w100 row-gato">
+  
+              <drag dropzone=".drop1" data="d2" append-to-dropzone> 
+                <div class="imagen-gato">
+                  <img src="i/3.png">
+                </div>
+              </drag>
+  
+            </div>
+          </div>
         </activity>
       </scene>
       <!-- END-->
-      <scene v-if="currentScene==2" :key="2" end-scene="end-scene" :final-data="finalData"></scene>
+      <!-- SCENES-->
+      <scene v-if="currentScene==2" :key="2" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="1" scene-color="#ED1C25">
+        <info type="seleccionar" title="" text="Lee la nota informativa." textaudio="s/instruccion1.mp3" :autoplay="true"></info>
+        <activity class="activity2">
+          <div class="row w100 row-activity1">
+            <div class="row w100">
+              <div class="drop w100 h50 row drop1 mar" droptimes="untilok" data="d1"></div>
+              <div class="drop w100 h50 row drop1 bosque" droptimes="untilok" data="d2"></div>
+              <div class="drop w100 h50 row drop1 desierto" droptimes="untilok" data="d3"></div>
+              <div class="drop w100 h50 row drop1 antartida" droptimes="untilok" data="d4"></div>
+              <div class="drop w100 h50 row drop1 selva" droptimes="untilok" data="d5"></div>
+            </div>
+  
+            <div class="row w100 activity1">
+  
+              <drag dropzone=".drop1" data="d3" append-to-dropzone> 
+                <div class="imagen-camello">
+                  <img src="i/4.png">
+                </div>
+              </drag>
+  
+            </div>
+          </div>
+        </activity>
+      </scene>
+      <!-- END-->
+      <!-- SCENES-->
+      <scene v-if="currentScene==3" :key="3" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="1" scene-color="#ED1C25">
+        <info type="seleccionar" title="" text="Lee la nota informativa." textaudio="s/instruccion1.mp3" :autoplay="true"></info>
+        <activity class="activity3">
+          <div class="row w100 row-activity1">
+            <div class="row w100">
+              <div class="drop w100 h50 row drop1 mar" droptimes="untilok" data="d1"></div>
+              <div class="drop w100 h50 row drop1 bosque" droptimes="untilok" data="d4"></div>
+              <div class="drop w100 h50 row drop1 desierto" droptimes="untilok" data="d3"></div>
+              <div class="drop w100 h50 row drop1 antartida" droptimes="untilok" data="d2"></div>
+              <div class="drop w100 h50 row drop1 selva" droptimes="untilok" data="d5"></div>
+            </div>
+  
+            <div class="row w100 activity1">
+  
+              <drag dropzone=".drop1" data="d2" append-to-dropzone> 
+                <div class="imagen-pinguino">
+                  <img src="i/6.png">
+                </div>
+              </drag>
+  
+            </div>
+          </div>
+        </activity>
+      </scene>
+      <!-- END-->
+      <!-- SCENES-->
+      <scene v-if="currentScene==4" :key="4" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="1" scene-color="#ED1C25">
+        <info type="seleccionar" title="" text="Lee la nota informativa." textaudio="s/instruccion1.mp3" :autoplay="true"></info>
+        <activity class="activity4">
+          <div class="row w100 row-activity1">
+            <div class="row w100">
+              <div class="drop w100 h50 row drop1 mar" droptimes="untilok" data="d1"></div>
+              <div class="drop w100 h50 row drop1 bosque" droptimes="untilok" data="d5"></div>
+              <div class="drop w100 h50 row drop1 desierto" droptimes="untilok" data="d3"></div>
+              <div class="drop w100 h50 row drop1 antartida" droptimes="untilok" data="d4"></div>
+              <div class="drop w100 h50 row drop1 selva" droptimes="untilok" data="d2"></div>
+            </div>
+  
+            <div class="row w100 activity1">
+  
+              <drag dropzone=".drop1" data="d2" append-to-dropzone> 
+                <div class="imagen-gorila">
+                  <img src="i/8.png">
+                </div>
+              </drag>
+  
+            </div>
+          </div>
+        </activity>
+      </scene>
+      <!-- END-->
+      <!-- SCENES-->
+      <scene v-if="currentScene==5" :key="5" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="1" scene-color="#ED1C25">
+        <info type="seleccionar" title="" text="Lee la nota informativa." textaudio="s/instruccion1.mp3" :autoplay="true"></info>
+        <activity class="activity5">
+          <div class="row w100 row-activity1">
+            <div class="row w100">
+              <div class="drop w100 h50 row drop1 mar" droptimes="untilok" data="d2"></div>
+              <div class="drop w100 h50 row drop1 bosque" droptimes="untilok" data="d1"></div>
+              <div class="drop w100 h50 row drop1 desierto" droptimes="untilok" data="d3"></div>
+              <div class="drop w100 h50 row drop1 antartida" droptimes="untilok" data="d4"></div>
+              <div class="drop w100 h50 row drop1 selva" droptimes="untilok" data="d5"></div>
+            </div>
+  
+            <div class="row w100 activity1">
+  
+              <drag dropzone=".drop1" data="d2" append-to-dropzone> 
+                <div class="imagen-pulpo">
+                  <img src="i/10.png">
+                </div>
+              </drag>
+  
+            </div>
+          </div>
+        </activity>
+      </scene>
+      <!-- END-->
+      <scene v-if="currentScene==6" :key="6" end-scene="end-scene" :final-data="finalData"></scene>
     </div>
     <!-- CDNS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
@@ -60,8 +383,8 @@
       app.$devmode = false
       app.$set(app.temps, 'a', [])
       
-      app.currentScene = 0
-      app.scenesCount = 1
+      app.currentScene = 1
+      app.scenesCount = 6
     </script>
   </body>
 </html>
