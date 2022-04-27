@@ -1,0 +1,128 @@
+include ../../assets/pug/_head
+include ../../assets/pug/_scripts
+
+- title = 'Animales despistados'
+
+<!DOCTYPE html>
+html(lang="es")
+    +head
+        style.
+            .animalImage{
+                position: relative;
+            }
+            .animal{
+                position: absolute;
+                left:0%; top:0%; width: 100%; height: 100%;
+            }
+            
+
+            .desplegar .options {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+            .desplegar .options .option {
+                max-width: 180px;
+            }
+            .modaloptions{
+                z-index: 99;
+            }
+
+            
+            .animal1{ left: 87%; top: 48%; width:8%; height: 14%; z-index: 10; }
+            .animal2{ left: 44%; top: 28%; width:8%; height: 14%; z-index: 10; }
+            .animal3{ left: 81%; top: 55.5%; width:5%; height: 10%; z-index: 10; }
+            .animal4{ left: 20.8%; top: 22%; width:8%; height: 16%; z-index: 10; }
+            .animal5{ left: 73%; top: 30%; width:20%; height: 22%; z-index: 10; }
+
+
+    body
+        #app
+            // START
+            scene(v-if="currentScene==0" :key="0" start-scene @completed="sceneCompleted")
+
+            // SCENES
+            scene(v-if="currentScene==1" :key="1" :score="scoreInScene" :temporals="temporals" alloks alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="2" scene-color="#ED1C25")
+                info(type="seleccionar" title=title text="Observa muy bien la imagen y busca  al animal  que no pertenezcan ahí, cuando lo encuentres dale click y selecciona la imagen del lugar  al que crees que pertenece." textaudio="s/instruccion1.mp3" :autoplay="true")
+                activity
+                    .row.w100.animalImage
+                        img(src="i/bg1.png").w100
+                        .animals
+                            clickable(:isok="true" initclass="animal animal1" simple-ok @wasclicked="temps.a = true"): div
+                            clickable(:isok="false" initclass="animal" simple-ok @wasclicked="temps.a = true"): div
+                            
+                            
+                    desplegar(v-if="temps.a" :answer-num="1" :options="['bg1.png','bg2.png','bg3.png','bg4.png','bg5.png']" modal-options show-ok initial-status="open"): template(v-slot:option="{option}"): img(:src="'i/'+option.text").w100
+            
+            // SCENES
+            scene(v-if="currentScene==2" :key="2" :score="scoreInScene" :temporals="temporals" alloks alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="2" scene-color="#ED1C25")
+                info(type="seleccionar" title=title text="Observa muy bien la imagen y busca  al animal  que no pertenezcan ahí, cuando lo encuentres dale click y selecciona la imagen del lugar  al que crees que pertenece." textaudio="s/instruccion1.mp3" :autoplay="false")
+                activity
+                    .row.w100.animalImage
+                        img(src="i/bg2.png").w100
+                        .animals
+                            clickable(:isok="true" initclass="animal animal2" simple-ok @wasclicked="temps.b = true"): div
+                            clickable(:isok="false" initclass="animal" simple-ok @wasclicked="temps.b = true"): div
+                            
+                            
+                    desplegar(v-if="temps.b" :answer-num="2" :options="['bg1.png','bg2.png','bg3.png','bg4.png','bg5.png']" modal-options show-ok initial-status="open"): template(v-slot:option="{option}"): img(:src="'i/'+option.text").w100
+                    
+            // SCENES
+            scene(v-if="currentScene==3" :key="3" :score="scoreInScene" :temporals="temporals" alloks alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="2" scene-color="#ED1C25")
+                info(type="seleccionar" title=title text="Observa muy bien la imagen y busca  al animal  que no pertenezcan ahí, cuando lo encuentres dale click y selecciona la imagen del lugar  al que crees que pertenece." textaudio="s/instruccion1.mp3" :autoplay="false")
+                activity
+                    .row.w100.animalImage
+                        img(src="i/bg3.png").w100
+                        .animals.animals3
+                            clickable(:isok="true" initclass="animal animal3" simple-ok @wasclicked="temps.c = true"): div
+                            clickable(:isok="false" initclass="animal" simple-ok @wasclicked="temps.b = true"): div
+                            
+                    desplegar(v-if="temps.c" :answer-num="3" :options="['bg1.png','bg2.png','bg3.png','bg4.png','bg5.png']" modal-options show-ok initial-status="open"): template(v-slot:option="{option}"): img(:src="'i/'+option.text").w100
+                    
+            // SCENES
+            scene(v-if="currentScene==4" :key="4" :score="scoreInScene" :temporals="temporals" alloks alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="2" scene-color="#ED1C25")
+                info(type="seleccionar" title=title text="Observa muy bien la imagen y busca  al animal  que no pertenezcan ahí, cuando lo encuentres dale click y selecciona la imagen del lugar  al que crees que pertenece." textaudio="s/instruccion1.mp3" :autoplay="false")
+                activity
+                    .row.w100.animalImage
+                        img(src="i/bg4.png").w100
+                        .animals.animals4
+                            clickable(:isok="true" initclass="animal animal4" simple-ok @wasclicked="temps.d = true"): div
+                            clickable(:isok="false" initclass="animal" simple-ok @wasclicked="temps.b = true"): div
+                            
+                    desplegar(v-if="temps.d" :answer-num="4" :options="['bg1.png','bg2.png','bg3.png','bg4.png','bg5.png']" modal-options show-ok initial-status="open"): template(v-slot:option="{option}"): img(:src="'i/'+option.text").w100
+                    
+            // SCENES
+            scene(v-if="currentScene==5" :key="5" :score="scoreInScene" :temporals="temporals" alloks alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="2" scene-color="#ED1C25")
+                info(type="seleccionar" title=title text="Observa muy bien la imagen y busca  al animal  que no pertenezcan ahí, cuando lo encuentres dale click y selecciona la imagen del lugar  al que crees que pertenece." textaudio="s/instruccion1.mp3" :autoplay="false")
+                activity
+                    .row.w100.animalImage
+                        img(src="i/bg5.png").w100
+                        .animals.animals5
+                            clickable(:isok="true" initclass="animal animal5" simple-ok @wasclicked="temps.e = true"): div
+                            clickable(:isok="false" initclass="animal" simple-ok @wasclicked="temps.b = true"): div
+                            
+                    desplegar(v-if="temps.e" :answer-num="0" :options="['bg1.png','bg2.png','bg3.png','bg4.png','bg5.png']" modal-options show-ok initial-status="open"): template(v-slot:option="{option}"): img(:src="'i/'+option.text").w100
+                    
+
+            
+            
+            // END 
+            scene(v-if="currentScene==6" :key="6" end-scene :final-data="finalData")
+        
+        +scripts
+            script.
+
+                app.$devmode = false
+                app.$set(app.temps, 'a', false)
+                app.$set(app.temps, 'b', false)
+                app.$set(app.temps, 'c', false)
+                app.$set(app.temps, 'd', false)
+                app.$set(app.temps, 'e', false)
+                
+                
+
+
+                app.currentScene = 0
+                app.scenesCount = 5

@@ -3,213 +3,44 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
+    <title>Animales despistados</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <link rel="stylesheet" href="../../assets/font/stylesheet.css"/>
     <link rel="stylesheet" href="../../assets/assets.css"/>
     <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css"/>
     <style>
-      .drag{
-        width: 140px;
-        height: 140px;
+      .animalImage{
+          position: relative;
       }
-      .imagen{
-        width: 140px;
-        height: 140px;
-        border-radius: 6px;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
+      .animal{
+          position: absolute;
+          left:0%; top:0%; width: 100%; height: 100%;
       }
-      .imagen-gato{
-        width: 140px;
-        height: 140px;
-        border-radius: 6px;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
+      
+      
+      .desplegar .options {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          flex-wrap: wrap;
       }
-      .imagen-pinguino{
-        width: 140px;
-        height: 140px;
-        border-radius: 6px;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
+      .desplegar .options .option {
+          max-width: 180px;
       }
-      .imagen-camello{
-        width: 140px;
-        height: 140px;
-        border-radius: 6px;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
+      .modaloptions{
+          z-index: 99;
       }
-      .imagen-gorila{
-        width: 140px;
-        height: 140px;
-        border-radius: 6px;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-      }
-      .imagen-pulpo{
-        width: 140px;
-        height: 140px;
-        border-radius: 6px;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-      }
-      .drop{
-        width: 120px;
-        height: 130px;
-        border: 4px dashed #fff;
-      }
-      .uno{
-        position: absolute;
-        margin-top: -70px;
-        margin-left: 55px;
-        width: 140px;
-        height: 147px;
-      }
-      .dos{
-        position: absolute;
-        width: 240px;
-        height: 320px;
-        margin-left: 510px;
-        margin-top: 22px;
-      }
-      .tres{
-        position: absolute;
-        margin-top: 348px;
-        margin-left: 91px;
-        width: 137px;
-        height: 151px;
-      }
-      .cuatro{
-        margin-left: 0;
-        width: 160px;
-        height: 94px;
-        background-image: url(i/1-.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-      }
-      .mar{
-        margin-left: 0;
-        width: 160px;
-        height: 94px;
-        background-image: url(i/1-.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-      }
-      .bosque{
-        margin-left: 0;
-        width: 160px;
-        height: 94px;
-        background-image: url(i/02_2.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-      }
-      .desierto{
-        margin-left: 0;
-        width: 160px;
-        height: 94px;
-        background-image: url(i/05_2.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-      }
-      .antartida{
-        margin-left: 0;
-        width: 160px;
-        height: 94px;
-        background-image: url(i/07_2.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-      }
-      .selva{
-        margin-left: 0;
-        width: 160px;
-        height: 94px;
-        background-image: url(i/09_2.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-      }
-      .dropzoneused .numero-oculto{
-        display: none;
-      }
-      .activity{
-        background-image: url('i/1-.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: bottom;
-        justify-content: flex-start;
-        height: 600px;
-      }
-      .activity2{
-        background-image: url('i/02_2.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: bottom;
-        justify-content: flex-start;
-        height: 600px;
-      }
-      .activity3{
-        background-image: url('i/05_2.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: bottom;
-        justify-content: flex-start;
-        height: 600px;
-      }
-      .activity4{
-        background-image: url('i/07_2.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: bottom;
-        justify-content: flex-start;
-        height: 600px;
-      }
-      .activity5{
-        background-image: url('i/09_2.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: bottom;
-        justify-content: flex-start;
-        height: 600px;
-      }
-      .drag img{
-        max-width: 60px;
-      }
-      .uno .animate__flash img{
-        width: 24px;
-        margin-top: 0px;
-        margin-left: 2px;
-      }
-      .dos .animate__flash img{
-        margin-top: -86px;
-        position: absolute;
-        margin-left: -65px;
-        width: 26px;
-      }
-      .tres .animate__flash img{
-        margin-top: 0px;
-        width: 29px;
-        margin-left: 4px;
-      }
-      .cuatro .animate__flash img{
-        width: 26px;
-        margin-top: 0px;
-        margin-left: 3px;
-      }
-      .row-activity1{
-        display: block;
-      }
-      .row-gato{
-        margin-top: 190px;
-        margin-left: 360px;
-      }
+      
+      
+      .animal1{ left: 87%; top: 48%; width:8%; height: 14%; z-index: 10; }
+      .animal2{ left: 44%; top: 28%; width:8%; height: 14%; z-index: 10; }
+      .animal3{ left: 81%; top: 55.5%; width:5%; height: 10%; z-index: 10; }
+      .animal4{ left: 20.8%; top: 22%; width:8%; height: 16%; z-index: 10; }
+      .animal5{ left: 73%; top: 30%; width:20%; height: 22%; z-index: 10; }
+      
+      
     </style>
   </head>
   <body>
@@ -217,135 +48,101 @@
       <!-- START-->
       <scene v-if="currentScene==0" :key="0" start-scene="start-scene" @completed="sceneCompleted"></scene>
       <!-- SCENES-->
-      <scene v-if="currentScene==1" :key="1" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="1" scene-color="#ED1C25">
-        <info type="seleccionar" title="" text="Observa muy bien la imagen y busca  al animal  que no pertenezcan ahí, cuando lo encuentres dale click y selecciona la imagen del lugar  al que crees que pertenece  (voz de mujer)" textaudio="s/instruccion1.mp3" :autoplay="true"></info>
+      <scene v-if="currentScene==1" :key="1" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="2" scene-color="#ED1C25">
+        <info type="seleccionar" title="Animales despistados" text="Observa muy bien la imagen y busca  al animal  que no pertenezcan ahí, cuando lo encuentres dale click y selecciona la imagen del lugar  al que crees que pertenece." textaudio="s/instruccion1.mp3" :autoplay="true"></info>
         <activity>
-          <div class="row w100 row-activity1">
-            <div class="row w100">
-              <div class="drop w100 h50 row drop1 mar" droptimes="untilok" data="d1"></div>
-              <div class="drop w100 h50 row drop1 bosque" droptimes="untilok" data="d2"></div>
-              <div class="drop w100 h50 row drop1 desierto" droptimes="untilok" data="d3"></div>
-              <div class="drop w100 h50 row drop1 antartida" droptimes="untilok" data="d4"></div>
-              <div class="drop w100 h50 row drop1 selva" droptimes="untilok" data="d5"></div>
-            </div>
-  
-            <div class="row w100 row-gato">
-  
-              <drag dropzone=".drop1" data="d2" append-to-dropzone> 
-                <div class="imagen-gato">
-                  <img src="i/3.png">
-                </div>
-              </drag>
-  
+          <div class="row w100 animalImage"><img class="w100" src="i/bg1.png"/>
+            <div class="animals">
+              <clickable :isok="true" initclass="animal animal1" simple-ok="simple-ok" @wasclicked="temps.a = true">
+                <div></div>
+              </clickable>
+              <clickable :isok="false" initclass="animal" simple-ok="simple-ok" @wasclicked="temps.a = true">
+                <div></div>
+              </clickable>
             </div>
           </div>
+          <desplegar v-if="temps.a" :answer-num="1" :options="['bg1.png','bg2.png','bg3.png','bg4.png','bg5.png']" modal-options="modal-options" show-ok="show-ok" initial-status="open">
+            <template v-slot:option="{option}"><img class="w100" :src="'i/'+option.text"/></template>
+          </desplegar>
         </activity>
       </scene>
-      <!-- END-->
       <!-- SCENES-->
-      <scene v-if="currentScene==2" :key="2" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="1" scene-color="#ED1C25">
-        <info type="seleccionar" title="" text="Lee la nota informativa." textaudio="s/instruccion1.mp3" :autoplay="true"></info>
-        <activity class="activity2">
-          <div class="row w100 row-activity1">
-            <div class="row w100">
-              <div class="drop w100 h50 row drop1 mar" droptimes="untilok" data="d1"></div>
-              <div class="drop w100 h50 row drop1 bosque" droptimes="untilok" data="d2"></div>
-              <div class="drop w100 h50 row drop1 desierto" droptimes="untilok" data="d3"></div>
-              <div class="drop w100 h50 row drop1 antartida" droptimes="untilok" data="d4"></div>
-              <div class="drop w100 h50 row drop1 selva" droptimes="untilok" data="d5"></div>
-            </div>
-  
-            <div class="row w100 activity1">
-  
-              <drag dropzone=".drop1" data="d3" append-to-dropzone> 
-                <div class="imagen-camello">
-                  <img src="i/4.png">
-                </div>
-              </drag>
-  
+      <scene v-if="currentScene==2" :key="2" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="2" scene-color="#ED1C25">
+        <info type="seleccionar" title="Animales despistados" text="Observa muy bien la imagen y busca  al animal  que no pertenezcan ahí, cuando lo encuentres dale click y selecciona la imagen del lugar  al que crees que pertenece." textaudio="s/instruccion1.mp3" :autoplay="false"></info>
+        <activity>
+          <div class="row w100 animalImage"><img class="w100" src="i/bg2.png"/>
+            <div class="animals">
+              <clickable :isok="true" initclass="animal animal2" simple-ok="simple-ok" @wasclicked="temps.b = true">
+                <div></div>
+              </clickable>
+              <clickable :isok="false" initclass="animal" simple-ok="simple-ok" @wasclicked="temps.b = true">
+                <div></div>
+              </clickable>
             </div>
           </div>
+          <desplegar v-if="temps.b" :answer-num="2" :options="['bg1.png','bg2.png','bg3.png','bg4.png','bg5.png']" modal-options="modal-options" show-ok="show-ok" initial-status="open">
+            <template v-slot:option="{option}"><img class="w100" :src="'i/'+option.text"/></template>
+          </desplegar>
         </activity>
       </scene>
-      <!-- END-->
       <!-- SCENES-->
-      <scene v-if="currentScene==3" :key="3" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="1" scene-color="#ED1C25">
-        <info type="seleccionar" title="" text="Lee la nota informativa." textaudio="s/instruccion1.mp3" :autoplay="true"></info>
-        <activity class="activity3">
-          <div class="row w100 row-activity1">
-            <div class="row w100">
-              <div class="drop w100 h50 row drop1 mar" droptimes="untilok" data="d1"></div>
-              <div class="drop w100 h50 row drop1 bosque" droptimes="untilok" data="d4"></div>
-              <div class="drop w100 h50 row drop1 desierto" droptimes="untilok" data="d3"></div>
-              <div class="drop w100 h50 row drop1 antartida" droptimes="untilok" data="d2"></div>
-              <div class="drop w100 h50 row drop1 selva" droptimes="untilok" data="d5"></div>
-            </div>
-  
-            <div class="row w100 activity1">
-  
-              <drag dropzone=".drop1" data="d2" append-to-dropzone> 
-                <div class="imagen-pinguino">
-                  <img src="i/6.png">
-                </div>
-              </drag>
-  
+      <scene v-if="currentScene==3" :key="3" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="2" scene-color="#ED1C25">
+        <info type="seleccionar" title="Animales despistados" text="Observa muy bien la imagen y busca  al animal  que no pertenezcan ahí, cuando lo encuentres dale click y selecciona la imagen del lugar  al que crees que pertenece." textaudio="s/instruccion1.mp3" :autoplay="false"></info>
+        <activity>
+          <div class="row w100 animalImage"><img class="w100" src="i/bg3.png"/>
+            <div class="animals animals3">
+              <clickable :isok="true" initclass="animal animal3" simple-ok="simple-ok" @wasclicked="temps.c = true">
+                <div></div>
+              </clickable>
+              <clickable :isok="false" initclass="animal" simple-ok="simple-ok" @wasclicked="temps.b = true">
+                <div></div>
+              </clickable>
             </div>
           </div>
+          <desplegar v-if="temps.c" :answer-num="3" :options="['bg1.png','bg2.png','bg3.png','bg4.png','bg5.png']" modal-options="modal-options" show-ok="show-ok" initial-status="open">
+            <template v-slot:option="{option}"><img class="w100" :src="'i/'+option.text"/></template>
+          </desplegar>
         </activity>
       </scene>
-      <!-- END-->
       <!-- SCENES-->
-      <scene v-if="currentScene==4" :key="4" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="1" scene-color="#ED1C25">
-        <info type="seleccionar" title="" text="Lee la nota informativa." textaudio="s/instruccion1.mp3" :autoplay="true"></info>
-        <activity class="activity4">
-          <div class="row w100 row-activity1">
-            <div class="row w100">
-              <div class="drop w100 h50 row drop1 mar" droptimes="untilok" data="d1"></div>
-              <div class="drop w100 h50 row drop1 bosque" droptimes="untilok" data="d5"></div>
-              <div class="drop w100 h50 row drop1 desierto" droptimes="untilok" data="d3"></div>
-              <div class="drop w100 h50 row drop1 antartida" droptimes="untilok" data="d4"></div>
-              <div class="drop w100 h50 row drop1 selva" droptimes="untilok" data="d2"></div>
-            </div>
-  
-            <div class="row w100 activity1">
-  
-              <drag dropzone=".drop1" data="d2" append-to-dropzone> 
-                <div class="imagen-gorila">
-                  <img src="i/8.png">
-                </div>
-              </drag>
-  
+      <scene v-if="currentScene==4" :key="4" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="2" scene-color="#ED1C25">
+        <info type="seleccionar" title="Animales despistados" text="Observa muy bien la imagen y busca  al animal  que no pertenezcan ahí, cuando lo encuentres dale click y selecciona la imagen del lugar  al que crees que pertenece." textaudio="s/instruccion1.mp3" :autoplay="false"></info>
+        <activity>
+          <div class="row w100 animalImage"><img class="w100" src="i/bg4.png"/>
+            <div class="animals animals4">
+              <clickable :isok="true" initclass="animal animal4" simple-ok="simple-ok" @wasclicked="temps.d = true">
+                <div></div>
+              </clickable>
+              <clickable :isok="false" initclass="animal" simple-ok="simple-ok" @wasclicked="temps.b = true">
+                <div></div>
+              </clickable>
             </div>
           </div>
+          <desplegar v-if="temps.d" :answer-num="4" :options="['bg1.png','bg2.png','bg3.png','bg4.png','bg5.png']" modal-options="modal-options" show-ok="show-ok" initial-status="open">
+            <template v-slot:option="{option}"><img class="w100" :src="'i/'+option.text"/></template>
+          </desplegar>
         </activity>
       </scene>
-      <!-- END-->
       <!-- SCENES-->
-      <scene v-if="currentScene==5" :key="5" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="1" scene-color="#ED1C25">
-        <info type="seleccionar" title="" text="Lee la nota informativa." textaudio="s/instruccion1.mp3" :autoplay="true"></info>
-        <activity class="activity5">
-          <div class="row w100 row-activity1">
-            <div class="row w100">
-              <div class="drop w100 h50 row drop1 mar" droptimes="untilok" data="d2"></div>
-              <div class="drop w100 h50 row drop1 bosque" droptimes="untilok" data="d1"></div>
-              <div class="drop w100 h50 row drop1 desierto" droptimes="untilok" data="d3"></div>
-              <div class="drop w100 h50 row drop1 antartida" droptimes="untilok" data="d4"></div>
-              <div class="drop w100 h50 row drop1 selva" droptimes="untilok" data="d5"></div>
-            </div>
-  
-            <div class="row w100 activity1">
-  
-              <drag dropzone=".drop1" data="d2" append-to-dropzone> 
-                <div class="imagen-pulpo">
-                  <img src="i/10.png">
-                </div>
-              </drag>
-  
+      <scene v-if="currentScene==5" :key="5" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="2" scene-color="#ED1C25">
+        <info type="seleccionar" title="Animales despistados" text="Observa muy bien la imagen y busca  al animal  que no pertenezcan ahí, cuando lo encuentres dale click y selecciona la imagen del lugar  al que crees que pertenece." textaudio="s/instruccion1.mp3" :autoplay="false"></info>
+        <activity>
+          <div class="row w100 animalImage"><img class="w100" src="i/bg5.png"/>
+            <div class="animals animals5">
+              <clickable :isok="true" initclass="animal animal5" simple-ok="simple-ok" @wasclicked="temps.e = true">
+                <div></div>
+              </clickable>
+              <clickable :isok="false" initclass="animal" simple-ok="simple-ok" @wasclicked="temps.b = true">
+                <div></div>
+              </clickable>
             </div>
           </div>
+          <desplegar v-if="temps.e" :answer-num="0" :options="['bg1.png','bg2.png','bg3.png','bg4.png','bg5.png']" modal-options="modal-options" show-ok="show-ok" initial-status="open">
+            <template v-slot:option="{option}"><img class="w100" :src="'i/'+option.text"/></template>
+          </desplegar>
         </activity>
       </scene>
-      <!-- END-->
+      <!-- END -->
       <scene v-if="currentScene==6" :key="6" end-scene="end-scene" :final-data="finalData"></scene>
     </div>
     <!-- CDNS-->
@@ -381,10 +178,17 @@
     <script src="../../assets/assets.js"></script>
     <script>
       app.$devmode = false
-      app.$set(app.temps, 'a', [])
+      app.$set(app.temps, 'a', false)
+      app.$set(app.temps, 'b', false)
+      app.$set(app.temps, 'c', false)
+      app.$set(app.temps, 'd', false)
+      app.$set(app.temps, 'e', false)
       
-      app.currentScene = 1
-      app.scenesCount = 6
+      
+      
+      
+      app.currentScene = 0
+      app.scenesCount = 5
     </script>
   </body>
 </html>
