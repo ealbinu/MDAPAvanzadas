@@ -241,7 +241,7 @@ Vue.component('drag', {
         hitTestISOK(dropzone, e){
             var _this = this
 
-            _this.$emit('dropped')
+            _this.$emit('dropped', dropzone)
 
             //## OK
             if(_this.noOkSound == undefined && _this.extval == undefined){

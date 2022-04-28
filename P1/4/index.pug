@@ -1,13 +1,59 @@
 include ../../assets/pug/_head
 include ../../assets/pug/_scripts
 
-- title = ''
+- title = 'El color de la fruta'
 
 <!DOCTYPE html>
 html(lang="es")
     +head
         style.
+            .pintura{
+                width: 100%;
+            }
+            .pincel{
+                width: 100%;
+            }
+            .drag{
+                width: 10px;
+                height: auto;
+                margin: 0 auto;
+            }
 
+            .drop{
+                fill: #ffffff !important;
+            }
+  
+            :root{
+                --morado: #92659d;
+                --beige: #f1dba0;
+                --rojo: #b52d34;
+                --amarillo: #f5e059;
+                --verde: #90b552;
+                --naranja: #c77a36;
+            }
+
+            .p1 .pintura-color { fill: var(--morado) !important; }
+            .p2 .pintura-color { fill: var(--beige) !important; }
+            .p3 .pintura-color { fill: var(--rojo) !important; }
+            .p4 .pintura-color { fill: var(--amarillo) !important; }
+            .p5 .pintura-color { fill: var(--verde) !important; }
+            .p6 .pintura-color { fill: var(--naranja) !important; }
+            
+            .p1 .pincel-color { fill: var(--morado) !important; }
+            .p2 .pincel-color { fill: var(--beige) !important; }
+            .p3 .pincel-color { fill: var(--rojo) !important; }
+            .p4 .pincel-color { fill: var(--amarillo) !important; }
+            .p5 .pincel-color { fill: var(--verde) !important; }
+            .p6 .pincel-color { fill: var(--naranja) !important; }
+
+            path[data-color="p1"] { fill: var(--morado) !important; }
+            path[data-color="p2"] { fill: var(--beige) !important; }
+            path[data-color="p3"] { fill: var(--rojo) !important; }
+            path[data-color="p4"] { fill: var(--amarillo) !important; }
+            path[data-color="p5"] { fill: var(--verde) !important; }
+            path[data-color="p6"] { fill: var(--naranja) !important; }
+
+            
 
     body
         #app
@@ -15,20 +61,88 @@ html(lang="es")
             scene(v-if="currentScene==0" :key="0" start-scene @completed="sceneCompleted")
 
             // SCENES
-            scene(v-if="currentScene==1" :key="1" :score="scoreInScene" :temporals="temporals" alloks alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="1" scene-color="#ED1C25")
-                info(type="seleccionar" title=title text="Lee la nota informativa." textaudio="s/instruccion1.mp3" :autoplay="true")
+            scene(v-if="currentScene==1" :key="1" :score="scoreInScene" :temporals="temporals" alloks alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="1" scene-color="#ED1C25" @loaded="loadedScene")
+                info(type="dragdrop" title=title text="¿Son frutas o verduras? ¿De qué color son? Elige el color y arrastra la brocha  para pintar los elementos que observas del color que les corresponde." textaudio="s/instruccion1.mp3" :autoplay="true")
                 activity
+                    .row.w100.wrap
+                            .coloreado.w10.p1
+                                .pintura: include i/pintura.svg
+                                drag(data="pintura" dropzone=".drop" return-to-position disableok @dropped="colorit('p1', $event)" single-detection)
+                                    .pincel: include i/pincel.svg
+                            .coloreado.w10.p2
+                                .pintura: include i/pintura.svg
+                                drag(data="pintura" dropzone=".drop"  return-to-position disableok @dropped="colorit('p2', $event)" single-detection)
+                                    .pincel: include i/pincel.svg
+                            .coloreado.w10.p3
+                                .pintura: include i/pintura.svg
+                                drag(data="pintura" dropzone=".drop" return-to-position disableok @dropped="colorit('p3', $event)" single-detection)
+                                    .pincel: include i/pincel.svg
+                            .coloreado.w10.p4
+                                .pintura: include i/pintura.svg
+                                drag(data="pintura" dropzone=".drop" return-to-position disableok @dropped="colorit('p4', $event)" single-detection)
+                                    .pincel: include i/pincel.svg
+                            .coloreado.w10.p5
+                                .pintura: include i/pintura.svg
+                                drag(data="pintura" dropzone=".drop" return-to-position disableok @dropped="colorit('p5', $event)" single-detection)
+                                    .pincel: include i/pincel.svg
+                            .coloreado.w10.p6
+                                .pintura: include i/pintura.svg
+                                drag(data="pintura" dropzone=".drop" return-to-position disableok @dropped="colorit('p6', $event)" single-detection)
+                                    .pincel: include i/pincel.svg
+
                     .row.w100
-            
+                        .w60#custompaint: include i/elemento2.svg
+                    .row.w100.text-center: button(@click="finishColoring").button.big.animate__animated.animate__flip Terminé de colorear
+
+
+            // SCENES
+            scene(v-if="currentScene==2" :key="2" :score="scoreInScene" :temporals="temporals" alloks alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="1" scene-color="#ED1C25")
+                info(type="dragdrop" title=title text="¿Son frutas o verduras? ¿De qué color son? Elige el color y arrastra la brocha  para pintar los elementos que observas del color que les corresponde." textaudio="s/instruccion1.mp3" :autoplay="false")
+                activity
+                    .row.w100.text-center
+                        .w50
+                            number(c=1 smaller) Tu dibujo
+                            .w100#customdraw(v-html="temps.dibujo")
+                        .w50
+                            number(c=2 smaller) Original
+                            div: include i/elemento2.svg
+                    .row.w100.text-center: button(@click="sceneCompleted(false)").button.big.animate__animated.animate__flip Finalizar
             
             // END
-            scene(v-if="currentScene==2" :key="2" end-scene :final-data="finalData")
+            scene(v-if="currentScene==3" :key="3" end-scene :final-data="finalData")
         
         +scripts
             script.
 
                 app.$devmode = false
-                app.$set(app.temps, 'a', [])
+                app.$set(app.temps, 'visibleSVG', [])
                 
-                app.currentScene = 0
+                //Add drop attrs to svg paths
+                app.loadedScene = () =>{
+                    setTimeout(()=>{
+                        var drops = document.querySelectorAll('#dropzones path')
+                        drops.forEach(item => {
+                            item.classList.add('drop')
+                            item.setAttribute('droptimes', 'multiple')
+                            item.setAttribute('data', 'pintura')
+                        })
+                    },100)
+                }
+
+                //Coloring function
+                app.colorit = (color, dropzone) => {
+                    dropzone.setAttribute('data-color', color)
+                }
+
+                //Finish coloring
+                app.finishColoring = () => {
+                    var dibujo = document.getElementById('custompaint').innerHTML;
+                    app.$set(app.temps, 'dibujo', dibujo)
+                    EventBus.$emit('isok')
+                }
+
+               
+
+
+                app.currentScene = 1
                 app.scenesCount = 1
