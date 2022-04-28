@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+  
+<!-- Mirrored from odasavanzadas.tk/ES3T3/91/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Apr 2022 20:19:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Escribo verbos en infinitivo</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
+    <link rel="stylesheet" href="../../../cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link rel="stylesheet" href="../../assets/font/stylesheet.css"/>
+    <link rel="stylesheet" href="../../assets/assets.css"/>
+    <link rel="stylesheet" href="../../../cdn.plyr.io/3.6.2/plyr.css"/>
+    <style>
+      [wascloned] { display: none; }
+      .textoex2 {
+          background: #6E6B89;
+          border-radius: 10px;
+          font-size: 1.1rem;
+          padding: 10px;
+          color: #fff;
+      }
+      .textoex2 .drop.dr2 {
+          min-height: 20px;
+          width: 30%;
+          display: inline-block;
+          vertical-align: middle;
+          background: #A8A4D1;
+          border-color: #635F7B;
+      }
+      .sialguien{
+          background: #F7EF7A;
+          padding: 10px;
+          border-radius: 10px;
+          margin-bottom: 10px;
+      }
+      @media (max-width: 680px) {
+          .textoex2 .drop.dr2 {
+              display: block;
+              width: auto;
+          }
+      }
+      
+      
+      
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- START-->
+      <scene v-if="currentScene==0" :key="0" start-scene="start-scene" @completed="sceneCompleted"></scene>
+      <!-- SCENES-->
+      <scene v-if="currentScene==1" hidescorebox="hidescorebox" :key="1" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="1" scene-color="#ED1C25">
+        <!--info(type="seleccionar" title=title text="Lee la nota informativa." textaudio="s/instruccion1.mp3" :autoplay="true")-->
+        <activity>
+          <div class="row w100 info">
+            <h1>Escribo verbos en infinitivo</h1>
+          </div>
+          <div class="row w100">
+            <videoplayer initclass="w100" :autoplay="true" c="6" path="i/v1" @completed="temps.a = true"> </videoplayer>
+          </div>
+          <div class="row w100" v-if="temps.a">
+            <button class="button big" @click="sceneCompleted(false)">Siguiente</button>
+          </div>
+        </activity>
+      </scene>
+      <!-- SCENES-->
+      <scene v-if="currentScene==2" :key="2" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="9" scene-color="#ED1C25">
+        <info type="dragdrop" title="Escribo verbos en infinitivo" text="En la historia anterior se usan muchos verbos, ayúdanos a clasificar los siguientes. Coloca cada verbo en la caja que corresponda." textaudio="s/instruccion1.mp3" :autoplay="true"></info>
+        <activity>
+          <div class="row w100 text-center">
+            <div class="w40">
+              <div class="h4">Verbos en infinitivo</div>
+              <div class="drop dr2" data="in.html" droptimes="untilok"></div>
+            </div>
+            <div class="w20"><img class="w100" src="i/a.png"/></div>
+            <div class="w40">
+              <div class="h4">Verbos en imperativo</div>
+              <div class="drop dr2" data="im.html" droptimes="untilok"></div>
+            </div>
+          </div>
+          <div class="row w100 wrap">
+            <template v-for="(i, index) in temps.drags">
+              <template v-if="i.d">
+                <drag ref="drgs" :data="i.d" extval="extval" dropzone=".drop" append-clone="append-clone" initclass="txt">
+                  <div v-html="i.t"></div>
+                </drag>
+              </template>
+              <template v-else="v-else">
+                <drag ref="drgs" :data="i.v" isfalse="isfalse" extval="extval" dropzone=".drop" append-clone="append-clone" initclass="txt">
+                  <div v-html="i.t"></div>
+                </drag>
+              </template>
+            </template>
+          </div>
+          <div class="text-center">
+            <button class="button big animate__animated animate__flip" @click="dragValidation(['drgs'], 9)">Verificar</button>
+          </div>
+        </activity>
+      </scene>
+      <!-- SCENES-->
+      <scene v-if="currentScene==3" :key="3" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="3" scene-color="#ED1C25">
+        <info type="dragdrop" title="Escribo verbos en infinitivo" text="Ahora, coloca los verbos que completen el texto." textaudio="s/instruccion2.mp3" :autoplay="true"></info>
+        <activity>
+          <div class="row w100 text-center">
+            <div class="w20"><img class="w100" src="i/b.png"/></div>
+            <div class="w80">
+              <div class="h4 sialguien">Si a alguien le diera hipo le diría:</div>
+              <div class="textoex2">No te desesperes,
+                <div class="drop dr2" data="haz.html" droptimes="untilok"></div> alguna actividad que te distraiga. Puedes  
+                <div class="drop dr2" data="acariciar.html" droptimes="untilok"></div> a tu mascota o 
+                <div class="drop dr2" data="tranquil%c3%adzate.html" droptimes="untilok"></div> en el jardín. 
+              </div>
+            </div>
+          </div>
+          <div class="row w100 wrap">
+            <template v-for="(i, index) in temps.drags2">
+              <template v-if="i.d">
+                <drag ref="drgs2" :data="i.t" extval="extval" dropzone=".drop" append-clone="append-clone" initclass="txt">
+                  <div>{{i.t}}</div>
+                </drag>
+              </template>
+              <template v-else="v-else">
+                <drag ref="drgs2" :data="i.t" isfalse="isfalse" extval="extval" dropzone=".drop" append-clone="append-clone" initclass="txt">
+                  <div>{{i.t}}</div>
+                </drag>
+              </template>
+            </template>
+          </div>
+          <div class="text-center">
+            <button class="button big animate__animated animate__flip" @click="dragValidation(['drgs2'], 3)">Verificar</button>
+          </div>
+        </activity>
+      </scene>
+      <!-- END-->
+      <scene v-if="currentScene==4" :key="4" end-scene="end-scene" :final-data="finalData"></scene>
+    </div>
+    <!-- CDNS-->
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+    <script src="../../../unpkg.com/vue%402.6.11/dist/vue.js"></script>
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
+    <script src="../../../cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/Draggable.min.js"></script>
+    <script src="../../../unpkg.com/%40lottiefiles/lottie-player%401.5.7/dist/lottie-player.js"></script>
+    <script src="../../../cdn.plyr.io/3.6.2/plyr.js"></script>
+    <!-- Fireworks-->
+    <script src="../../assets/modulos/fworks.js"></script>
+    <!-- Modulos-->
+    <script src="../../assets/modulos/sequence.js"></script>
+    <script src="../../assets/modulos/videoplayer.js"></script>
+    <script src="../../assets/modulos/popup.js"></script>
+    <script src="../../assets/modulos/number.js"></script>
+    <script src="../../assets/modulos/inputable.js"></script>
+    <script src="../../assets/modulos/embedsvg.js"></script>
+    <script src="../../assets/modulos/tooltiper.js"></script>
+    <script src="../../assets/modulos/dialogaudio.js"></script>
+    <script src="../../assets/modulos/selectives.js"></script>
+    <script src="../../assets/modulos/clickable.js"></script>
+    <script src="../../assets/modulos/drag.js"></script>
+    <script src="../../assets/modulos/audiotext.js"></script>
+    <script src="../../assets/modulos/desplegar.js"></script>
+    <script src="../../assets/modulos/scorebox.js"></script>
+    <script src="../../assets/modulos/scene.js"></script>
+    <script src="../../assets/modulos/info.js"></script>
+    <script src="../../assets/modulos/activity.js"></script>
+    <!-- Mainscript-->
+    <script src="../../assets/assets.js"></script>
+    <script>
+      app.$devmode = false
+      app.$set(app.temps, 'a', false)
+      app.$set(app.temps, 'drags', [
+          {t: 'chupar', d: 'in'},
+          {t: 'quitar', d: 'in'},
+          //{t: 'dijo'},
+          {t: 'inclina', d: 'im'},
+          {t: 'poner', d: 'in'},
+          {t: 'bebe', d: 'im'},
+          //{t: 'contó'},
+          {t: 'respirar', d: 'in'},
+          {t: 'saca', d: 'im'},
+          //{t: 'lleg&oacute;'},
+          {t: 'acariciar', d: 'in'},
+          {t: 'ponte', d: 'im'}
+      ])
+      app.$set(app.temps, 'drags2', [
+          {t: 'haz', d: true},
+          {t: 'as', d: false},
+          {t: 'maltratar', d: false},
+          {t: 'tranquilízate', d: true},
+          {t: 'acariciar', d: true},
+          {t: 'caminar', d: false},
+          {t: 'correr', d: false},
+      ])
+      
+      app.currentScene = 0
+      app.scenesCount = 2
+    </script>
+  </body>
+
+<!-- Mirrored from odasavanzadas.tk/ES3T3/91/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Apr 2022 20:19:57 GMT -->
+</html>

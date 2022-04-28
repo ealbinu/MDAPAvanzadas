@@ -215,7 +215,7 @@ input[type=number] {
   }
 }
 .info {
-  background-image: url(../../assets/aanim/info2.svg);
+  background-image: url(aanim/info2.svg);
   background-size: cover;
   animation: infobg 60s infinite alternate;
 }
