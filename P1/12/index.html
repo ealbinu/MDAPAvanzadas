@@ -9,7 +9,154 @@
     <link rel="stylesheet" href="../../assets/font/stylesheet.css" />
     <link rel="stylesheet" href="../../assets/assets.css" />
     <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css" />
-    <style></style>
+    <style>
+      .activity-inicial{
+        background-image: none !important;
+      }
+      .activity{
+        background-image: url(i/13.png);
+        height: 600px;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      .activity2{
+        background-image: url(i/7.png);
+        height: 600px;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      .activity3{
+        background-image: url(i/2.png);
+        height: 600px;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      .drop{
+        width: 100%;
+        height: 100%;
+        border: 4px dashed transparent;
+      }
+      .div-drop{
+        height: 468px;
+      }
+      .div-drop .drop .imagen{
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 50px;
+      }
+      .div-drop .drop .imagen img{
+        width: 410px;
+      }
+      .div-drop .drop .imagen .drop-uno{
+        height: 170px;
+        width: 430px;
+        margin-left: -434px;
+      }
+      .drop-uno .imagen{
+        margin-top: -60px;
+        margin-left: 60px;
+      }
+      .drop-uno .imagen img{
+        width: 350px;
+      }
+      .drop-uno .imagen .drop-dos{
+        width: 450px;
+        margin-left: -471px;
+        height: 310px;
+        margin-bottom: -70px;
+      }
+      .drop-uno .imagen .drop-dos .imagen img{
+        width: 160px;
+        margin-left: 160px;
+      }
+      .drop-uno .imagen .drop-dos .imagen{
+        margin-top: 63px;
+      }
+      .drop-uno .imagen .drop-dos .imagen .drop-tres{
+        width: 490px;
+        margin-left: -350px;
+      }
+      .drop-uno .imagen .drop-dos .imagen .drop-tres .imagen{
+        margin-top: -300px;
+        margin-left: -210px;
+      }
+      .drop-uno .imagen .drop-dos .imagen .drop-tres .imagen img{
+        width: 460px;
+      }
+      .activity2 .div-drop .drop .imagen{
+        display: -webkit-box;
+      }
+      .activity2 .div-drop .drop .imagen img{
+        width: 169px;
+        margin-left: 312px;
+        margin-top: 22px;
+      }
+      .activity2 .div-drop .drop .imagen .drop-uno{
+        width: 760px;
+        margin-left: -493px;
+        height: 436px;
+      }
+      .activity2 .div-drop .drop .imagen .drop-uno .imagen{
+        margin-left: 400px;
+      }
+      .activity2 .div-drop .drop .imagen .drop-uno .imagen img{
+        width: 49px;
+        margin-left: -137px;
+        margin-top: 120px;
+        display: inline-table;
+      }
+      .activity2 .div-drop .drop .imagen .drop-uno .imagen .drop-dos{
+        width: 730px;
+        height: 460px;
+        margin-top: 80px;
+        margin-left: -370px;
+      }
+      .activity2 .div-drop .drop .imagen .drop-uno .imagen .drop-dos .imagen img{
+        width: 77px;
+        margin-top: 243px;
+        margin-left: 44px;
+      }
+      .activity2 .div-drop .drop .imagen .drop-uno .imagen .drop-dos .imagen .drop{
+        margin-left: -551px;
+        width: 740px;
+      }
+      
+      .activity2 .div-drop .drop .imagen .drop-uno .imagen .drop-dos .imagen .drop-tres .imagen .drop-cuatro{
+        margin-top: 150px;
+        margin-right: 180px;
+      }
+      .activity2 .div-drop .drop .imagen .drop-uno .imagen .drop-dos .imagen .drop-tres .imagen img{
+        width: 57px;
+        margin-top: 380px;
+        margin-right: 250px;
+      }
+      .activity3 .div-drop .drop .imagen .drop-uno .imagen{
+        margin-top: -3px;
+      }
+      .activity3 .div-drop .drop .imagen .drop-uno .imagen img{
+        width: 160px;
+        margin-left: 120px;
+        z-index: 2;
+      }
+      .activity3 .div-drop .drop .imagen .drop-uno .imagen .drop{
+        width: 440px;
+        margin-left: -340px;
+        height: 400px;
+      }
+      .activity3 .div-drop .drop .imagen .drop-uno .imagen .drop .imagen{
+        margin-top: -30px;
+      }
+      .activity3 .div-drop .drop .imagen .drop-uno .imagen .drop .imagen img{
+        width: 320px;
+        z-index: 1;
+        margin-left: 30px;
+        margin-bottom: 40px;
+      }
+      .activity3 .div-drop .drop .imagen .drop-uno .imagen .drop .imagen .drop-tres{
+        margin-left: -380px;
+      }
+    </style>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
   </head>
   <body>
@@ -86,62 +233,131 @@
       <scene v-if="currentScene==0" :key="0" start-scene="start-scene" @completed="sceneCompleted"></scene>
       <!-- SCENES-->
       <scene v-if="currentScene==1" :key="1" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="1" scene-color="#ED1C25">
-        <info type="seleccionar" title="" text="Lee la nota informativa." textaudio="s/1.mp3" :autoplay="true"></info>
-        <div class="activity">
+        <info type="video" title="" text="Escucha el relato con atención." textaudio="s/intro.mp3" :autoplay="true" @completedinstructions="playvideo"></info>
+        <div class="activity activity-inicial">
           <div class="row w100">
-              <div class="videoplayer w100 c1">
-                  <div tabindex="0" class="plyr plyr--full-ui plyr--video plyr--html5 plyr--fullscreen-enabled plyr--pip-supported plyr--paused">
-                      <div class="plyr__controls">
-                          <button class="plyr__controls__item plyr__control" type="button" data-plyr="play" aria-label="Play">
-                              <svg class="icon--pressed" aria-hidden="true" focusable="false"><use xlink:href="#plyr-pause"></use></svg><svg class="icon--not-pressed" aria-hidden="true" focusable="false"><use xlink:href="#plyr-play"></use></svg>
-                              <span class="label--pressed plyr__sr-only">Pause</span><span class="label--not-pressed plyr__sr-only">Play</span>
-                          </button>
-                          <div class="plyr__controls__item plyr__progress__container">
-                              <div class="plyr__progress">
-                                  <input
-                                      data-plyr="seek"
-                                      type="range"
-                                      min="0"
-                                      max="100"
-                                      step="0.01"
-                                      value="0"
-                                      autocomplete="off"
-                                      role="slider"
-                                      aria-label="Seek"
-                                      aria-valuemin="0"
-                                      aria-valuemax="238.783"
-                                      aria-valuenow="56.796031"
-                                      id="plyr-seek-9951"
-                                      aria-valuetext="00:56 of 03:58"
-                                      style="--value: 23.79%;"
-                                      seek-value="19.64873765093304"
-                                  />
-                                  <progress class="plyr__progress__buffer" min="0" max="100" value="73.95585112843041" role="progressbar" aria-hidden="true">% buffered</progress><span class="plyr__tooltip" style="left: 19.6487%;">00:46</span>
-                              </div>
-                          </div>
-                          <button class="plyr__controls__item plyr__control" type="button" data-plyr="fullscreen">
-                              <svg class="icon--pressed" aria-hidden="true" focusable="false"><use xlink:href="#plyr-exit-fullscreen"></use></svg>
-                              <svg class="icon--not-pressed" aria-hidden="true" focusable="false"><use xlink:href="#plyr-enter-fullscreen"></use></svg><span class="label--pressed plyr__sr-only">Exit fullscreen</span>
-                              <span class="label--not-pressed plyr__sr-only">Enter fullscreen</span>
-                          </button>
-                      </div>
-                      <div class="plyr__video-wrapper">
-                          <video playsinline="" class="w100">
-                              <source src="i/v1.mp4" type="video/mp4" />
-                              <source src="i/v1.webm" type="video/webm" />
-                          </video>
-                          <div class="plyr__poster" hidden=""></div>
-                      </div>
-                      <div class="plyr__captions"></div>
-                  </div>
-              </div>
+            <videoplayer initclass="w100" :autoplay="false" c="1" path="i/v1" @completed="temps.a = true" ref="video1"></videoplayer>
           </div>
           <!---->
+          <div class="row w100" v-if="temps.a">
+            <button class="button big" @click="sceneCompleted(false)">Siguiente</button>
+          </div>
         </div>
-      
+        
       </scene>
+      <!-- SCENES-->
+      <scene v-if="currentScene==2" :key="2" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="4" scene-color="#ED1C25">
+        <info type="dragdrop" title="" text="Recuerda los relatos que escuchaste y coloca  a la mascota con su nombre y su sitio favorito." textaudio="s/cuadro 2.mp3" :autoplay="true"></info>
+        <activity>
+
+          <div class="row w100 div-drop">
+            <div class="drop w100 h50 row drop1" droptimes="untilok" data="d4"></div>
+          </div>
+
+          <div class="row w100 activity1">
+
+            <drag dropzone=".drop1" data="d2" append-to-dropzone> 
+              <div class="imagen">
+                <img src="i/16.png">
+                <div class="drop w100 h50 row drop1 drop-tres" droptimes="untilok" data="d1"></div>
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d4" append-to-dropzone stay-if-ok>
+              <div class="imagen">
+                <img src="i/17.png">
+                <div class="drop w100 h50 row drop1 drop-uno" droptimes="untilok" data="d3"></div>
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d1" append-to-dropzone>
+              <div class="imagen">
+                <img src="i/14.png">
+                
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d3" append-to-dropzone>
+              <div class="imagen">
+                <img src="i/15.png">
+                <div class="drop w100 h50 row drop1 drop-dos" droptimes="untilok" data="d2"></div>
+              </div>
+            </drag>
+
+          </div>
+        </activity>
+      </scene>
+      <scene v-if="currentScene==3" :key="3" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="4" scene-color="#ED1C25">
+        <info type="dragdrop" title="" text="Recuerda los relatos que escuchaste y coloca  a la mascota con su nombre y su sitio favorito." textaudio="s/cuadro 2.mp3" :autoplay="true"></info>
+        <activity class="activity2">
+
+          <div class="row w100 div-drop">
+            <div class="drop w100 h50 row drop1" droptimes="untilok" data="d4"></div>
+          </div>
+
+          <div class="row w100 activity1">
+
+            <drag dropzone=".drop1" data="d2" append-to-dropzone> 
+              <div class="imagen">
+                <img src="i/11.png">
+                <div class="drop w100 h50 row drop1 drop-tres" droptimes="untilok" data="d1"></div>
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d4" append-to-dropzone stay-if-ok>
+              <div class="imagen">
+                <img src="i/8.png">
+                <div class="drop w100 h50 row drop1 drop-uno" droptimes="untilok" data="d3"></div>
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d1" append-to-dropzone>
+              <div class="imagen">
+                <img src="i/10.png">
+                <div class="drop w100 h50 row drop1 drop-cuatro" droptimes="untilok" data="d4"></div>
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d3" append-to-dropzone>
+              <div class="imagen">
+                <img src="i/9.png">
+                <div class="drop w100 h50 row drop1 drop-dos" droptimes="untilok" data="d2"></div>
+              </div>
+            </drag>
+
+          </div>
+        </activity>
+      </scene>
+      <scene v-if="currentScene==4" :key="4" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="3" scene-color="#ED1C25">
+        <info type="dragdrop" title="" text="Recuerda los relatos que escuchaste y coloca  a la mascota con su nombre y su sitio favorito." textaudio="s/cuadro 2.mp3" :autoplay="true"></info>
+        <activity class="activity3">
+
+          <div class="row w100 div-drop">
+            <div class="drop w100 h50 row drop1" droptimes="untilok" data="d4"></div>
+          </div>
+
+          <div class="row w100 activity1">
+
+            <drag dropzone=".drop1" data="d2" append-to-dropzone> 
+              <div class="imagen">
+                <img src="i/4.png">
+                <div class="drop w100 h50 row drop1 drop-tres" droptimes="untilok" data="d1"></div>
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d4" append-to-dropzone stay-if-ok>
+              <div class="imagen">
+                <img src="i/5.png">
+                <div class="drop w100 h50 row drop1 drop-uno" droptimes="untilok" data="d3"></div>
+              </div>
+            </drag>
+            <drag dropzone=".drop1" data="d3" append-to-dropzone>
+              <div class="imagen">
+                <img src="i/3.png">
+                <div class="drop w100 h50 row drop1 drop-dos" droptimes="untilok" data="d2"></div>
+              </div>
+            </drag>
+
+          </div>
+        </activity>
+      </scene>
+      <!-- SCENES-->
       <!-- END-->
-      <scene v-if="currentScene==2" :key="2" end-scene="end-scene" :final-data="finalData"></scene>
+      
+      <scene v-if="currentScene==5" :key="5" end-scene="end-scene" :final-data="finalData"></scene>
     </div>
     <!-- CDNS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
@@ -175,15 +391,18 @@
     <script src="../../assets/modulos/activity.js"></script>
     <!-- Mainscript-->
     <script src="../../assets/assets.js"></script>
+
+
     <script>
-      app.$devmode = false;
-      app.$set(app.temps, 'a', false);
+      app.$devmode = false
+      app.$set(app.temps, 'a', false)
       app.playvideo = () => {
           app.$refs.video1.play()
       };
-      app.currentScene = 0;
-      app.scenesCount = 2;
       
+      app.currentScene = 0
+      app.scenesCount = 4
     </script>
+
   </body>
 </html>
