@@ -398,6 +398,14 @@
       "oAP" : "\/assets\/canciones\/Magosong.m4a",
       "oF" : 0
     },
+    "\/assets\/canciones\/MDA-fashion-song.mp3" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/assets\/canciones\/MDA-fashion-song.mp3",
+      "oF" : 0
+    },
     "\/assets\/canciones\/Mda-partysong.m4a" : {
       "cB" : 0,
       "ft" : 8192,
@@ -676,6 +684,17 @@
       "mi" : 1,
       "oA" : 0,
       "oAP" : "\/assets\/modulos\/dialogaudio-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/assets\/modulos\/drag-min.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/assets\/modulos\/drag-min-min.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 0
@@ -3207,12 +3226,30 @@
     "\/P1\/4\/i\/elemento.svg" : {
       "ft" : 2097152,
       "miP" : 0,
-      "oA" : 1,
+      "oA" : 2,
       "oAP" : "\/P1\/4\/i\/elemento.svg",
       "oF" : 0,
       "opt" : 0,
       "plM" : 3758088159,
       "prP" : 0
+    },
+    "\/P1\/4\/i\/elemento2.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 1,
+      "oAP" : "\/P1\/4\/i\/elemento2.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 3758088159,
+      "prP" : 0
+    },
+    "\/P1\/4\/i\/frurtas-divididas.afdesign" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/P1\/4\/i\/frurtas-divididas.afdesign",
+      "oF" : 0
     },
     "\/P1\/4\/i\/pincel.svg" : {
       "ft" : 2097152,
@@ -5367,6 +5404,22 @@
       "oAP" : "\/P1\/6\/s\/yum.mp3",
       "oF" : 0
     },
+    "\/P1\/6\/Video1.m4v" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/P1\/6\/Video1.m4v",
+      "oF" : 0
+    },
+    "\/P1\/6\/Video2.m4v" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/P1\/6\/Video2.m4v",
+      "oF" : 0
+    },
     "\/P1\/7\/i\/1.png" : {
       "ft" : 32768,
       "iS" : 86310,
@@ -6980,16 +7033,6 @@
       "oAP" : "\/P1\/12\/index.html",
       "oF" : 0
     },
-    "\/P1\/12\/index.pug" : {
-      "cB" : 0,
-      "cOD" : 1,
-      "ft" : 512,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/P1\/12\/index.html",
-      "oF" : 0,
-      "oS" : 0
-    },
     "\/P1\/12\/s\/1.mp3" : {
       "cB" : 0,
       "ft" : 8192,
@@ -7808,7 +7851,7 @@
       "oF" : 0,
       "oS" : 0
     },
-    "\/P1\/14\/s\/el mas pequeño.mp3" : {
+    "\/P1\/14\/s\/el mas pequeño.mp3" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
@@ -8262,7 +8305,7 @@
       "oAP" : "\/P1\/16\/s\/ciudad sonidos.mp3",
       "oF" : 0
     },
-    "\/P1\/16\/s\/cuántas ventanas hay.mp3" : {
+    "\/P1\/16\/s\/cuántas ventanas hay.mp3" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
@@ -9825,6 +9868,88 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/P1\/40\/s\/perrito.mp3",
+      "oF" : 0
+    },
+    "\/P1\/91\/acariciar.html" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/P1\/91\/acariciar.html",
+      "oF" : 0
+    },
+    "\/P1\/91\/haz.html" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/P1\/91\/haz.html",
+      "oF" : 0
+    },
+    "\/P1\/91\/i\/a.png" : {
+      "ft" : 32768,
+      "iS" : 26909,
+      "oA" : 0,
+      "oAP" : "\/P1\/91\/i\/a.png",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "oT" : 1,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
+    "\/P1\/91\/i\/b.png" : {
+      "ft" : 32768,
+      "iS" : 34101,
+      "oA" : 0,
+      "oAP" : "\/P1\/91\/i\/b.png",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "oT" : 1,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
+    "\/P1\/91\/im.html" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/P1\/91\/im.html",
+      "oF" : 0
+    },
+    "\/P1\/91\/in.html" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/P1\/91\/in.html",
+      "oF" : 0
+    },
+    "\/P1\/91\/index.html" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/P1\/91\/index.html",
+      "oF" : 0
+    },
+    "\/P1\/91\/tranquilízate.html" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/P1\/91\/tranquilízate.html",
+      "oF" : 0
+    },
+    "\/P1\/91\/tranquilízate.z" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/P1\/91\/tranquilízate.z",
       "oF" : 0
     },
     "\/Personajes\/Lolita.svg" : {

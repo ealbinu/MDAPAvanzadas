@@ -1,0 +1,57 @@
+include ../../assets/pug/_head
+include ../../assets/pug/_scripts
+
+- title = 'Vamos al mar'
+
+<!DOCTYPE html>
+html(lang="es")
+    +head
+        style.
+            .drop.dr2, .drag{
+                width: 86px;
+                height: 86px;
+            }
+            .drop.dr2{
+                padding: 0;
+                margin: 0 !important;
+            }
+            .puzzles{
+                max-width: 100% !important;
+            }
+            @media (max-width: 480px){
+                .drop.dr2, .drag{
+                    width: 60px;
+                    height: 60px;
+                }
+            }
+
+    body
+        #app
+            // START
+            scene(v-if="currentScene==0" :key="0" start-scene @completed="sceneCompleted")
+
+            // SCENES
+            scene(v-if="currentScene==1" :key="1" :score="scoreInScene" :temporals="temporals" alloks alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="12" scene-color="#ED1C25")
+                info(type="dragdrop" title=title text="Los niños han tenido muchas dudas desde que hablaron en la escuela de los deportes acuáticos. ¡Completa el rompecabezas y descubre qué deporte practicaría cada quién!" textaudio="s/instruccion1.mp3" :autoplay="true")
+                activity
+                    .row.w100
+                        .drop(v-for="(item,index) in 4" :key="index" :data="index+1" droptimes="untilok").dr2
+                    .row.w100
+                        .drop(v-for="(item,index) in 4" :key="index" :data="index+5" droptimes="untilok").dr2
+                    .row.w100
+                        .drop(v-for="(item,index) in 4" :key="index" :data="index+9" droptimes="untilok").dr2
+                    
+                    .row.w100.mt-1.wrap.puzzles
+                        .box(v-for="(item,index) in temps.a" :key="item")
+                            drag(:data="item" append-to-dropzone dropzone=".drop"): img(:src="'i/'+item+'.png'").w100
+            // END
+            scene(v-if="currentScene==2" :key="2" end-scene :final-data="finalData")
+        
+        +scripts
+            script.
+
+                app.$devmode = false
+                app.$set(app.temps, 'a', _.shuffle([1,2,3,4,5,6,7,8,9,10,11,12]))
+                
+                app.currentScene = 0
+                app.scenesCount = 1
