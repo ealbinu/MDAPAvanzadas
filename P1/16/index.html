@@ -1,67 +1,12 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title></title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
-    <link rel="stylesheet" href="../../assets/font/stylesheet.css"/>
-    <link rel="stylesheet" href="../../assets/assets.css"/>
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css"/>
-    <style></style>
-  </head>
-  <body>
-    <div id="app">
-      <!-- START-->
-      <scene v-if="currentScene==0" :key="0" start-scene="start-scene" @completed="sceneCompleted"></scene>
-      <!-- SCENES-->
-      <scene v-if="currentScene==1" :key="1" :score="scoreInScene" :temporals="temporals" alloks="alloks" alloks-sound="../../assets/asound/bienhecho_mujer.mp3" @completed="sceneCompleted" :devmode="$devmode" :answers="1" scene-color="#ED1C25">
-        <info type="seleccionar" title="" text="Lee la nota informativa." textaudio="s/instruccion1.mp3" :autoplay="true"></info>
-        <activity>
-          <div class="row w100"></div>
-        </activity>
-      </scene>
-      <!-- END-->
-      <scene v-if="currentScene==2" :key="2" end-scene="end-scene" :final-data="finalData"></scene>
-    </div>
-    <!-- CDNS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
-    <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/Draggable.min.js"></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <script src="https://cdn.plyr.io/3.6.2/plyr.js"></script>
-    <!-- Fireworks-->
-    <script src="../../assets/modulos/fworks.js"></script>
-    <!-- Modulos-->
-    <script src="../../assets/modulos/sequence.js"></script>
-    <script src="../../assets/modulos/videoplayer.js"></script>
-    <script src="../../assets/modulos/popup.js"></script>
-    <script src="../../assets/modulos/number.js"></script>
-    <script src="../../assets/modulos/inputable.js"></script>
-    <script src="../../assets/modulos/embedsvg.js"></script>
-    <script src="../../assets/modulos/tooltiper.js"></script>
-    <script src="../../assets/modulos/dialogaudio.js"></script>
-    <script src="../../assets/modulos/selectives.js"></script>
-    <script src="../../assets/modulos/clickable.js"></script>
-    <script src="../../assets/modulos/drag.js"></script>
-    <script src="../../assets/modulos/audiotext.js"></script>
-    <script src="../../assets/modulos/desplegar.js"></script>
-    <script src="../../assets/modulos/scorebox.js"></script>
-    <script src="../../assets/modulos/scene.js"></script>
-    <script src="../../assets/modulos/info.js"></script>
-    <script src="../../assets/modulos/activity.js"></script>
-    <!-- Mainscript-->
-    <script src="../../assets/assets.js"></script>
-    <script>
-      app.$devmode = false
-      app.$set(app.temps, 'a', [])
-      
-      app.currentScene = 0
-      app.scenesCount = 1
-    </script>
-  </body>
-</html>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title></title></head><body data="ASOMATE-ESP" class="bg-beige h-full"><div class="mx-auto h-full" id="app"><div><av-scene class="" v-bind:automatic-scene="true"><av-start></av-start></av-scene><av-scene class="" v-bind:automatic-scene="true"><av-info title="" interaction="input" class=""><action-timeline show="" hide="1" completed="1" completed-audio="" ok="" ok-audio="" error="" error-audio=""><module-audiotext text="Observa con atención." audio="assets/Observa con atenc.mp3" v-bind:autoplay="true" class=""></module-audiotext></action-timeline><action-timeline show="1" hide="2" completed="" completed-audio="" ok="" ok-audio="" error="" error-audio=""><module-audiotext text="¿Cuántas ventanas hay?" audio="assets/cuántas ventanas hay.mp3" v-bind:autoplay="true" class=""></module-audiotext></action-timeline><action-timeline show="2" hide="3" completed="3" completed-audio="" ok="" ok-audio="" error="" error-audio=""><module-audiotext text="La respuesta es 10" audio="assets/r ventanas.mp3" v-bind:autoplay="true" class=""></module-audiotext></action-timeline><action-timeline show="3" hide="4" completed="" completed-audio="" ok="" ok-audio="" error="" error-audio=""><module-audiotext text="¿Cuántos perros hay?" audio="assets/perros.mp3" v-bind:autoplay="true" class=""></module-audiotext></action-timeline><action-timeline show="4" hide="5" completed="5" completed-audio="" ok="" ok-audio="" error="" error-audio=""><module-audiotext text="La respuesta es 2" audio="assets/r perros.mp3" v-bind:autoplay="true" class=""></module-audiotext></action-timeline><action-timeline show="5" hide="6" completed="" completed-audio="" ok="" ok-audio="" error="" error-audio=""><module-audiotext text="¿Cuántas personas en patines hay?" audio="assets/patines.mp3" v-bind:autoplay="true" class=""></module-audiotext></action-timeline><action-timeline show="6" hide="7" completed="7" completed-audio="" ok="" ok-audio="" error="" error-audio=""><module-audiotext text="La respuesta es 3" audio="assets/r patines.mp3" v-bind:autoplay="true" class=""></module-audiotext></action-timeline><action-timeline show="7" hide="8" completed="" completed-audio="" ok="" ok-audio="" error="" error-audio=""><module-audiotext text="¿Cuántos autos rojos hay?" audio="assets/autos.mp3" v-bind:autoplay="true" class=""></module-audiotext></action-timeline><action-timeline show="8" hide="9" completed="9" completed-audio="" ok="" ok-audio="" error="" error-audio=""><module-audiotext text="La respuesta es 4" audio="assets/r autos.mp3" v-bind:autoplay="true" class=""></module-audiotext></action-timeline><action-timeline show="9" hide="10" completed="" completed-audio="" ok="" ok-audio="" error="" error-audio=""><module-audiotext text="¿Cuántos autobuses escolares hay?" audio="assets/autobuses.mp3" v-bind:autoplay="true" class=""></module-audiotext></action-timeline><action-timeline show="10" hide="11" completed="11" completed-audio="" ok="" ok-audio="" error="" error-audio=""><module-audiotext text="La respuesta es 1" audio="assets/r autobuses.mp3" v-bind:autoplay="true" class=""></module-audiotext></action-timeline><action-timeline show="11" hide="" completed="" completed-audio="" ok="" ok-audio="" error="" error-audio=""><module-audiotext text="¿Cuántas personas hay cruzando la calle?" audio="assets/personas.mp3" v-bind:autoplay="true" class=""></module-audiotext></action-timeline><action-timeline show="12" hide="" completed="13" completed-audio="" ok="" ok-audio="" error="" error-audio=""><module-audiotext text="La respuesta es 6" audio="assets/r personas.mp3" v-bind:autoplay="true" class=""></module-audiotext></action-timeline></av-info><av-activity class=""><layout-img img="assets/1.png" class=""></layout-img><action-timeline show="1" hide="3" completed="" completed-audio="" ok="2" ok-audio="" error="" error-audio=""><div class=""><span class=" text-2xl">¿Cuántas ventanas hay?
+
+</span><module-input v-bind:allok="false" answer="10" placeholder="#" class=" text-2xl w-20" :inmediate="true"></module-input></div></action-timeline><action-timeline show="3" hide="5" completed="" completed-audio="" ok="4" ok-audio="" error="" error-audio=""><div class=""><span class=" text-2xl">¿Cuántos perros hay?
+
+</span><module-input v-bind:allok="false" answer="2" placeholder="#" class=" text-2xl w-20" :inmediate="true"></module-input></div></action-timeline><action-timeline show="5" hide="7" completed="" completed-audio="" ok="6" ok-audio="" error="" error-audio=""><div class=""><span class=" text-2xl">¿Cuántas personas en patines hay?
+
+</span><module-input v-bind:allok="false" answer="3" placeholder="#" class=" text-2xl w-20" :inmediate="true"></module-input></div></action-timeline><action-timeline show="7" hide="9" completed="" completed-audio="" ok="8" ok-audio="" error="" error-audio=""><div class=""><span class=" text-2xl">¿Cuántos autos rojos hay?
+</span><module-input v-bind:allok="false" answer="4" placeholder="#" class=" text-2xl w-20" :inmediate="true"></module-input></div></action-timeline><action-timeline show="9" hide="11" completed="" completed-audio="" ok="10" ok-audio="" error="" error-audio=""><div class=""><span class=" text-2xl">¿Cuántos autobuses escolares hay?
+
+</span><module-input v-bind:allok="false" answer="1" placeholder="#" class=" text-2xl w-20" :inmediate="true"></module-input></div></action-timeline><action-timeline show="11" hide="" completed="" completed-audio="" ok="12" ok-audio="" error="" error-audio=""><div class=""><span class=" text-2xl">¿Cuántas personas hay cruzando la calle?
+
+</span><module-input v-bind:allok="false" answer="6" placeholder="#" class=" text-2xl w-20" :inmediate="true"></module-input></div></action-timeline><action-timeline show="13" hide="" completed="" completed-audio="" ok="" ok-audio="" error="" error-audio=""></action-timeline></av-activity></av-scene><av-scene class="" v-bind:automatic-scene="true"><av-end></av-end></av-scene></div></div><script src="https://cdn.jsdelivr.net/gh/bluemx/blueodasv2@v1.2.8/lib/loader.min.js" data-loader-version="v1.2.8" type="text/javascript"></script></body></html>
